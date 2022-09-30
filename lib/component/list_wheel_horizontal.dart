@@ -16,8 +16,8 @@ class _ListWheelState extends State<ListWheelHorizontal> {
       color: Colors.white,
       child: ListView(
         scrollDirection: Axis.horizontal,
-        padding: EdgeInsets.all(12),
-        physics: PageScrollPhysics(),
+        padding: const EdgeInsets.all(12),
+        physics: const PageScrollPhysics(),
         children: [
           Container(
             margin: const EdgeInsets.all(20) ,
@@ -43,6 +43,26 @@ class _ListWheelState extends State<ListWheelHorizontal> {
             width: 200,
             color: Colors.red,
           ),
+          Container(
+            margin: const EdgeInsets.all(20) ,
+            height: 100,
+            width: 200,
+            color: Colors.red,
+          ),
+          Container(
+            margin: const EdgeInsets.all(20) ,
+            height: 100,
+            width: 200,
+            color: Colors.red,
+          ),
+
+          Container(
+            margin: const EdgeInsets.all(20) ,
+            height: 100,
+            width: 200,
+            color: Colors.red,
+          ),
+
           Container(
             margin: const EdgeInsets.all(20) ,
             height: 100,
