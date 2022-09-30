@@ -49,9 +49,6 @@ class _ListWheelState extends State<ListWheelHorizontal> {
             width: 200,
             color: Colors.red,
           ),
-
-
-
         ],
       ),
     );
