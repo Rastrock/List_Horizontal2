@@ -1,20 +1,36 @@
 import 'package:flutter/material.dart';
 
 class ListWheelHorizontal extends StatefulWidget {
-  const ListWheelHorizontal({Key? key}) : super(key: key);
+  late double? heightCard;
+  late String directoryImage;
+  ListWheelHorizontal({Key? key, required double? height, required String directory }) : super(key: key){
+    heightCard = height;
+    directoryImage = directory;
+  }
+
 
   @override
-  State<ListWheelHorizontal> createState() => _ListWheelState();
+  State<ListWheelHorizontal> createState() => _ListWheelState(heightCard, directoryImage);
 }
 
 class _ListWheelState extends State<ListWheelHorizontal> {
-
+  late double? heightCard;
+  late String directoryImage;
+  _ListWheelState(double? height, String directory){
+    directoryImage = directory;
+    if(height != null){
+      heightCard = height;
+    }
+    else{
+      heightCard = 350;
+    }
+  }
   int _index =0;
   @override
   Widget build(BuildContext context) {
     return Center(
       child: SizedBox(
-        height: 300, // card height
+        height: heightCard, // card height
         child: PageView.builder(
           itemCount: 10,
           controller: PageController(viewportFraction: 0.5, keepPage: true),
@@ -22,14 +38,22 @@ class _ListWheelState extends State<ListWheelHorizontal> {
           itemBuilder: (_, i) {
             return Transform.scale(
               scale: i == _index ? 1 : 0.7,
-              child: AnimatedContainer(
-                duration: Duration(seconds: 1),
-                decoration: BoxDecoration(
+              child: Container(
+                decoration: const BoxDecoration(
                   color: Colors.blue,
                 ),
-                child: Text(
-                  'Card ${i+1}',
-                  style: TextStyle(fontSize: 32),
+                child: Column(
+                  children: [
+                    Container(
+                      height: 100,
+                      width: 100,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(directoryImage))
+                      ),
+                    ),
+                    const Text('Si')
+                  ],
                 )
               )
             );
