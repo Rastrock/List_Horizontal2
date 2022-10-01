@@ -8,48 +8,33 @@ class ListWheelHorizontal extends StatefulWidget {
 }
 
 class _ListWheelState extends State<ListWheelHorizontal> {
+
+  int _index =0;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 400,
-      width: double.infinity,
-      color: Colors.white,
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        padding: EdgeInsets.all(12),
-        physics: PageScrollPhysics(),
-        children: [
-          Container(
-            margin: const EdgeInsets.all(20) ,
-            height: 100,
-            width: 200,
-            color: Colors.red,
-          ),
-          Container(
-            margin: const EdgeInsets.all(20) ,
-            height: 100,
-            width: 200,
-            color: Colors.red,
-          ),
-          Container(
-            margin: const EdgeInsets.all(20) ,
-            height: 100,
-            width: 200,
-            color: Colors.red,
-          ),
-          Container(
-            margin: const EdgeInsets.all(20) ,
-            height: 100,
-            width: 200,
-            color: Colors.red,
-          ),
-          Container(
-            margin: const EdgeInsets.all(20) ,
-            height: 100,
-            width: 200,
-            color: Colors.red,
-          ),
-        ],
+    return Center(
+      child: SizedBox(
+        height: 300, // card height
+        child: PageView.builder(
+          itemCount: 10,
+          controller: PageController(viewportFraction: 0.5, keepPage: true),
+          onPageChanged: (int index) => setState(() => _index = index),
+          itemBuilder: (_, i) {
+            return Transform.scale(
+              scale: i == _index ? 1 : 0.7,
+              child: Card(
+                elevation: 6,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                child: Center(
+                  child: Text(
+                    "Card ${i + 1}",
+                    style: TextStyle(fontSize: 32),
+                  ),
+                ),
+              ),
+            );
+          },
+        ),
       ),
     );
   }
