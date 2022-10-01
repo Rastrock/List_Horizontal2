@@ -8,75 +8,140 @@ class ListWheelHorizontal extends StatefulWidget {
 }
 
 class _ListWheelState extends State<ListWheelHorizontal> {
+
+  PageController controller = PageController(initialPage: 0,keepPage: true);
+
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 400,
       width: double.infinity,
       color: Colors.white,
-      child: ListView(
+
+      child: PageView(
         scrollDirection: Axis.horizontal,
-        padding: const EdgeInsets.all(12),
-        physics: const PageScrollPhysics(),
+        controller: PageController(
+          viewportFraction: 0.5,
+        ),
+        pageSnapping: true,
+
         children: [
           Container(
             margin: const EdgeInsets.all(20) ,
             height: 100,
             width: 200,
-            color: Colors.red,
-          ),
-          Container(
-            margin: const EdgeInsets.all(20) ,
-            height: 100,
-            width: 200,
-            color: Colors.red,
-          ),
-          Container(
-            margin: const EdgeInsets.all(20) ,
-            height: 100,
-            width: 200,
-            color: Colors.red,
-          ),
-          Container(
-            margin: const EdgeInsets.all(20) ,
-            height: 100,
-            width: 200,
-            color: Colors.red,
-          ),
-          Container(
-            margin: const EdgeInsets.all(20) ,
-            height: 100,
-            width: 200,
-            color: Colors.red,
-          ),
-          Container(
-            margin: const EdgeInsets.all(20) ,
-            height: 100,
-            width: 200,
-            color: Colors.red,
+            child: const Material(
+              elevation: 20,
+              color: Colors.teal,
+            ),
           ),
 
           Container(
             margin: const EdgeInsets.all(20) ,
             height: 100,
             width: 200,
-            color: Colors.red,
+            child: const Material(
+              elevation: 20,
+              color: Colors.purpleAccent,
+            ),
           ),
 
           Container(
             margin: const EdgeInsets.all(20) ,
             height: 100,
             width: 200,
-            color: Colors.red,
+            child: const Material(
+              elevation: 20,
+              color: Colors.black,
+            ),
           ),
 
+          Container(
+            margin: const EdgeInsets.all(20) ,
+            height: 100,
+            width: 200,
+            child: const Material(
+              elevation: 20,
+              color: Colors.blue,
+            ),
+          ),
 
+          Container(
+            margin: const EdgeInsets.all(20) ,
+            height: 100,
+            width: 200,
+            child: const Material(
+              elevation: 20,
+              color: Colors.black,
+            ),
+          ),
+
+          Container(
+            margin: const EdgeInsets.all(20) ,
+            height: 100,
+            width: 200,
+            child: const Material(
+              elevation: 20,
+              color: Colors.yellowAccent,
+            ),
+          ),
+
+          Container(
+            margin: const EdgeInsets.all(20) ,
+            height: 100,
+            width: 200,
+            child: const Material(
+              elevation: 20,
+              color: Colors.black,
+            ),
+          ),
+
+          Container(
+            margin: const EdgeInsets.all(20) ,
+            height: 100,
+            width: 200,
+            child: const Material(
+              elevation: 20,
+              color: Colors.yellowAccent,
+            ),
+          ),
+
+          Container(
+            margin: const EdgeInsets.all(20) ,
+            height: 100,
+            width: 200,
+            child: const Material(
+              elevation: 20,
+              color: Colors.black,
+            ),
+          ),
+
+          Container(
+            margin: const EdgeInsets.all(20) ,
+            height: 100,
+            width: 200,
+            child: const Material(
+              elevation: 20,
+              color: Colors.yellowAccent,
+            ),
+          ),
+
+          Container(
+            margin: const EdgeInsets.all(20) ,
+            height: 100,
+            width: 200,
+            child: const Material(
+              elevation: 20,
+              color: Colors.black,
+            ),
+          ),
 
         ],
       ),
     );
   }
 }
+
 
 
 
