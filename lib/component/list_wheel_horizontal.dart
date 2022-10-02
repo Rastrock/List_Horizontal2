@@ -2,22 +2,22 @@ import 'package:flutter/material.dart';
 
 class ListWheelHorizontal extends StatefulWidget {
   late double? heightCard;
-  late String directoryImage;
-  ListWheelHorizontal({Key? key, required double? height, required String directory }) : super(key: key){
+  late List<Cards> listCards;
+  ListWheelHorizontal({Key? key, required double? height, required List<Cards> cards}) : super(key: key){
     heightCard = height;
-    directoryImage = directory;
+    listCards = cards;
   }
 
 
   @override
-  State<ListWheelHorizontal> createState() => _ListWheelState(heightCard, directoryImage);
+  State<ListWheelHorizontal> createState() => _ListWheelState(heightCard, listCards);
 }
 
 class _ListWheelState extends State<ListWheelHorizontal> {
   late double? heightCard;
-  late String directoryImage;
-  _ListWheelState(double? height, String directory){
-    directoryImage = directory;
+  late List<Cards> listCards;
+  _ListWheelState(double? height, List<Cards> cards){
+    listCards = cards;
     if(height != null){
       heightCard = height;
     }
@@ -32,63 +32,142 @@ class _ListWheelState extends State<ListWheelHorizontal> {
       child: SizedBox(
         height: heightCard, // card height
         child: PageView.builder(
-          itemCount: 10,
+          itemCount: listCards.length,
           controller: PageController(viewportFraction: 0.5, keepPage: true),
           onPageChanged: (int index) => setState(() => _index = index),
           itemBuilder: (_, i) {
             return Transform.scale(
-
               scale: i == _index ? 1 : 0.7,
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.blue,
-                ),
-                child: Column(
-                  children:[
-                    Flexible(
-                    flex: 6,
-                    child: ClipRect(
-                      child: Container(
-                        height: 450,
-                        decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.only(topRight: Radius.circular(20), topLeft: Radius.circular(20) ),
-                            image: DecorationImage(
-                              fit: BoxFit.fill,
-                                image: AssetImage(directoryImage))
-                        ),
-                      ),
-                    ),
-                  ),
-                     const Flexible(
-                       flex: 1,
-                       child: SizedBox(
-                        height: 5,
-                    ),
-                     ),
-                     Text("Hola"),
-                     const SizedBox(
-                          height: 5,
-                        ),
-                    Flexible(
-                      flex: 2,
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 20),
-                          child: Container(
-                            color: Colors.deepOrange,
-                          ),
-                        ))
-                  ]
-                ),
-              ),
-            );
+                child: listCards[i]);
           },
         ),
       ),
     );
   }
+
+  /*ClipRect _card(String image){
+    return ClipRect(
+      child: Container(
+        height: 450,
+        decoration: BoxDecoration(
+            borderRadius: const BorderRadius.only(topRight: Radius.circular(20), topLeft: Radius.circular(20) ),
+            image: DecorationImage(
+                fit: BoxFit.fill,
+                image: AssetImage(image)
+            )
+        ),
+      ),
+    );
+  }*/
+
+  /*Transform _transform(){
+    return Transform.scale(
+      scale: i == _index ? 1 : 0.7,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: Colors.blue,
+        ),
+        child: Column(
+            children:[
+              Flexible(
+                flex: 6,
+                child: ClipRect(
+                  child: Container(
+                    height: 450,
+                    decoration: BoxDecoration(
+                        borderRadius: const BorderRadius.only(topRight: Radius.circular(20), topLeft: Radius.circular(20) ),
+                        image: DecorationImage(
+                            fit: BoxFit.fill,
+                            image: AssetImage(directoryImage)
+                        )
+                    ),
+                  ),
+                ),
+              ),
+              const Flexible(
+                flex: 1,
+                child: SizedBox(
+                  height: 5,
+                ),
+              ),
+              Text("Hola"),
+              const SizedBox(
+                height: 5,
+              ),
+              Flexible(
+                  flex: 2,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: Container(
+                      color: Colors.deepOrange,
+                    ),
+                  )
+              )
+            ]
+        ),
+      ),
+    );
+  }*/
 }
 
+class Cards extends StatelessWidget {
+  late String directoryImage;
+  late String textCard;
+  late dynamic buttonCard;
+  Cards({Key? key, required String directory, required String text, required button}) : super(key: key){
+    directoryImage = directory;
+    textCard = text;
+    buttonCard = button;
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: Colors.blue,
+      ),
+      child: Column(
+          children:[
+            Flexible(
+              flex: 6,
+              child: ClipRect(
+                child: Container(
+                  height: 450,
+                  decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.only(topRight: Radius.circular(20), topLeft: Radius.circular(20) ),
+                      image: DecorationImage(
+                          fit: BoxFit.fill,
+                          image: AssetImage(directoryImage)
+                      )
+                  ),
+                ),
+              ),
+            ),
+            const Flexible(
+              flex: 1,
+              child: SizedBox(
+                height: 5,
+              ),
+            ),
+            Text(textCard),
+            const SizedBox(
+              height: 5,
+            ),
+            Flexible(
+                flex: 2,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+                  child: buttonCard,
+                )
+            )
+          ]
+      ),
+    );
+  }
+}
 
 /*Card card(){
     return Card(
