@@ -37,33 +37,60 @@ class _ListWheelState extends State<ListWheelHorizontal> {
           onPageChanged: (int index) => setState(() => _index = index),
           itemBuilder: (_, i) {
             return Transform.scale(
+
               scale: i == _index ? 1 : 0.7,
               child: Container(
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
                   color: Colors.blue,
                 ),
                 child: Column(
-                  children: [
-                    Container(
-                      height: 100,
-                      width: 100,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage(directoryImage))
+                  children:[
+                    Flexible(
+                    flex: 6,
+                    child: ClipRect(
+                      child: Container(
+                        height: 450,
+                        decoration: BoxDecoration(
+                            borderRadius: const BorderRadius.only(topRight: Radius.circular(20), topLeft: Radius.circular(20) ),
+                            image: DecorationImage(
+                              fit: BoxFit.fill,
+                                image: AssetImage(directoryImage))
+                        ),
                       ),
                     ),
-                    const Text('Si')
-                  ],
-                )
-              )
+                  ),
+                     const Flexible(
+                       flex: 1,
+                       child: SizedBox(
+                        height: 5,
+                    ),
+                     ),
+                     Text("Hola"),
+                     const SizedBox(
+                          height: 5,
+                        ),
+                    Flexible(
+                      flex: 2,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: Container(
+                            color: Colors.deepOrange,
+                          ),
+                        ))
+                  ]
+                ),
+              ),
             );
           },
         ),
       ),
     );
   }
+}
 
-  /*Card card(){
+
+/*Card card(){
     return Card(
       elevation: 6,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
@@ -75,138 +102,4 @@ class _ListWheelState extends State<ListWheelHorizontal> {
       ),
     );
   }*/
-
-Container leo(){
-  return Container(
-    height: 400,
-    width: double.infinity,
-    color: Colors.white,
-
-    child: PageView(
-      scrollDirection: Axis.horizontal,
-      controller: PageController(
-        viewportFraction: 0.5,
-      ),
-      pageSnapping: true,
-
-      children: [
-        Container(
-          margin: const EdgeInsets.all(20) ,
-          height: 100,
-          width: 200,
-          child: const Material(
-            elevation: 20,
-            color: Colors.teal,
-          ),
-        ),
-
-        Container(
-          margin: const EdgeInsets.all(20) ,
-          height: 100,
-          width: 200,
-          child: const Material(
-            elevation: 20,
-            color: Colors.purpleAccent,
-          ),
-        ),
-
-        Container(
-          margin: const EdgeInsets.all(20) ,
-          height: 100,
-          width: 200,
-          child: const Material(
-            elevation: 20,
-            color: Colors.black,
-          ),
-        ),
-
-        Container(
-          margin: const EdgeInsets.all(20) ,
-          height: 100,
-          width: 200,
-          child: const Material(
-            elevation: 20,
-            color: Colors.blue,
-          ),
-        ),
-
-        Container(
-          margin: const EdgeInsets.all(20) ,
-          height: 100,
-          width: 200,
-          child: const Material(
-            elevation: 20,
-            color: Colors.black,
-          ),
-        ),
-
-        Container(
-          margin: const EdgeInsets.all(20) ,
-          height: 100,
-          width: 200,
-          child: const Material(
-            elevation: 20,
-            color: Colors.yellowAccent,
-          ),
-        ),
-
-        Container(
-          margin: const EdgeInsets.all(20) ,
-          height: 100,
-          width: 200,
-          child: const Material(
-            elevation: 20,
-            color: Colors.black,
-          ),
-        ),
-
-        Container(
-          margin: const EdgeInsets.all(20) ,
-          height: 100,
-          width: 200,
-          child: const Material(
-            elevation: 20,
-            color: Colors.yellowAccent,
-          ),
-        ),
-
-        Container(
-          margin: const EdgeInsets.all(20) ,
-          height: 100,
-          width: 200,
-          child: const Material(
-            elevation: 20,
-            color: Colors.black,
-          ),
-        ),
-
-        Container(
-          margin: const EdgeInsets.all(20) ,
-          height: 100,
-          width: 200,
-          child: const Material(
-            elevation: 20,
-            color: Colors.yellowAccent,
-          ),
-        ),
-        Container(
-          margin: const EdgeInsets.all(20) ,
-          height: 100,
-          width: 200,
-          child: const Material(
-            elevation: 20,
-            color: Colors.black,
-          ),
-        ),
-      ],
-    ),
-  );}
-
-
-
-
-
-}
-
-
 

@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       home: Scaffold(
         appBar: AppBar(),
-        body: ListWheelHorizontal(height: 450, directory: 'assets/74297472_p0_master1200.jpg',),
+        body: ListWheelHorizontal(height: null, directory: 'assets/74297472_p0_master1200.jpg',),
       ),
     );
   }
