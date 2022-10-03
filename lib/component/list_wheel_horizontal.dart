@@ -1,6 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
-class ListWheelHorizontal extends StatefulWidget {
+class ListWheelHorizontal extends StatefulWidget{
   late double? heightCard;
   late List<Cards> listCards;
   ListWheelHorizontal({Key? key, required double? height, required List<Cards> cards}) : super(key: key){
@@ -11,10 +13,12 @@ class ListWheelHorizontal extends StatefulWidget {
 
   @override
   State<ListWheelHorizontal> createState() => _ListWheelState(heightCard, listCards);
+
 }
 
 class _ListWheelState extends State<ListWheelHorizontal> {
-  late double? heightCard;
+  static late double? heightCard;
+  //static late double? _opacity;
   late List<Cards> listCards;
   _ListWheelState(double? height, List<Cards> cards){
     listCards = cards;
@@ -25,7 +29,34 @@ class _ListWheelState extends State<ListWheelHorizontal> {
       heightCard = 350;
     }
   }
-  int _index =0;
+
+  final _controller = PageController(
+    viewportFraction: 0.5,
+    keepPage: true
+  );
+
+  double currentPage = 0.0;
+
+  void _listener(){
+    setState(() {
+      currentPage = _controller.page!;
+    });
+  }
+
+  @override
+  void initState(){
+    super.initState();
+    _controller.addListener(_listener);
+  }
+
+  @override
+  void dispose(){
+    _controller.removeListener(_listener);
+    _controller.dispose();
+    super.dispose();
+  }
+
+  //int _index =0;
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -33,18 +64,38 @@ class _ListWheelState extends State<ListWheelHorizontal> {
         height: heightCard, // card height
         child: PageView.builder(
           itemCount: listCards.length,
-          controller: PageController(viewportFraction: 0.5, keepPage: true),
-          onPageChanged: (int index) => setState(() => _index = index),
+          controller: _controller,
+          //onPageChanged: (int index) => setState(() => _index = index),
           itemBuilder: (_, i) {
-            return Transform.scale(
-              scale: i == _index ? 1 : 0.7,
-                child: listCards[i]);
+            if(i == currentPage){
+              //_opacity = 1;
+              return Transform.scale(
+                  scale: 1,
+                  child: listCards[i]
+              );
+            }else if(i < currentPage){
+              //_opacity = max(1 - (currentPage - i), 0.8);
+              return Transform.scale(
+                  scale: max(1 - (currentPage - i), 0.8),
+                  child: listCards[i]
+              );
+            }else{
+              //_opacity = max(1 - (i - currentPage), 0.8);
+              return Transform.scale(
+                  scale: max(1 - (i - currentPage), 0.8),
+                  child: listCards[i]
+              );
+            }
           },
         ),
       ),
     );
   }
 
+
+  /*
+   i == _index ? 1 : 0.8,
+   */
   /*ClipRect _card(String image){
     return ClipRect(
       child: Container(
@@ -124,6 +175,7 @@ class Cards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
