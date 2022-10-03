@@ -17,8 +17,8 @@ class ListWheelHorizontal extends StatefulWidget{
 }
 
 class _ListWheelState extends State<ListWheelHorizontal> {
-  static late double? heightCard;
-  //static late double? _opacity;
+  late double? heightCard;
+  //late double? _opacity;
   late List<Cards> listCards;
   _ListWheelState(double? height, List<Cards> cards){
     listCards = cards;
@@ -69,18 +69,21 @@ class _ListWheelState extends State<ListWheelHorizontal> {
           itemBuilder: (_, i) {
             if(i == currentPage){
               //_opacity = 1;
+              //listCards[i].opacity = _opacity!;
               return Transform.scale(
                   scale: 1,
                   child: listCards[i]
               );
             }else if(i < currentPage){
               //_opacity = max(1 - (currentPage - i), 0.8);
+              //listCards[i].opacity = _opacity!;
               return Transform.scale(
                   scale: max(1 - (currentPage - i), 0.8),
                   child: listCards[i]
               );
             }else{
               //_opacity = max(1 - (i - currentPage), 0.8);
+              //listCards[i].opacity = _opacity!;
               return Transform.scale(
                   scale: max(1 - (i - currentPage), 0.8),
                   child: listCards[i]
@@ -166,6 +169,7 @@ class Cards extends StatelessWidget {
   late String directoryImage;
   late String textCard;
   late dynamic buttonCard;
+  late double opacity;
   Cards({Key? key, required String directory, required String text, required button}) : super(key: key){
     directoryImage = directory;
     textCard = text;
@@ -175,7 +179,6 @@ class Cards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
@@ -192,7 +195,8 @@ class Cards extends StatelessWidget {
                       borderRadius: const BorderRadius.only(topRight: Radius.circular(20), topLeft: Radius.circular(20) ),
                       image: DecorationImage(
                           fit: BoxFit.fill,
-                          image: AssetImage(directoryImage)
+                          image: AssetImage(directoryImage),
+                          //opacity: opacity,
                       )
                   ),
                 ),
