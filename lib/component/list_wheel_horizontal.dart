@@ -39,9 +39,17 @@ class _ListWheelState extends State<ListWheelHorizontal> {
     textCard = text;
     buttonCard = button;
 
+    if(height != null){
+      heightCard = height;
+    }
+    else{
+      heightCard = 350;
+    }
+
   }
   final _controller = PageController(viewportFraction: 0.5);
   double _currentPage = 0.0;
+
 
   void _listener() {
     setState(() {
@@ -115,7 +123,7 @@ class _ListWheelState extends State<ListWheelHorizontal> {
                 ClipRRect(
                   child: Container(
                     height: 180,
-                    width: 300,
+                    width: 250,
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(25.0),
@@ -128,9 +136,9 @@ class _ListWheelState extends State<ListWheelHorizontal> {
                   ),
                 ),
 
-                const SizedBox(height: 20),
+                const SizedBox(height: 45),
                 Text(text),
-                const SizedBox(height: 20),
+                const SizedBox(height: 45),
                 button
               ],
             ),
