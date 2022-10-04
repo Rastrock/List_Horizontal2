@@ -9,11 +9,11 @@ class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
 
   List<String> image = [
+    "images/MonaChina.jpg",
     "images/nemaa.png",
+    "images/MonaChina.jpg",
     "images/nemaa.png",
-    "images/nemaa.png",
-    "images/nemaa.png",
-    "images/nemaa.png",
+    "images/MonaChina.jpg",
     "images/nemaa.png",
   ];
 
