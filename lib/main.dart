@@ -9,12 +9,12 @@ class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
 
   List<String> image = [
-    "images/MonaChina.jpg",
+    "images/salta.jpg",
+    "images/city1.jpg",
+    "images/city2.jpg",
+    "images/city1.jpg",
     "images/nemaa.png",
     "images/MonaChina.jpg",
-    "images/nemaa.png",
-    "images/MonaChina.jpg",
-    "images/nemaa.png",
   ];
 
   List<String> text = [
@@ -26,12 +26,12 @@ class MyApp extends StatelessWidget {
     "Name cat? 6",
   ];
   List<Widget> button = [
-    ElevatedButton(onPressed: (){}, child: Container(color: Colors.purple, width: 200)),
-    ElevatedButton(onPressed: (){}, child: Container(color: Colors.blue, width: 200)),
-    ElevatedButton(onPressed: (){}, child: Container(color: Colors.red, width: 200)),
-    ElevatedButton(onPressed: (){}, child: Container(color: Colors.black, width: 200)),
-    ElevatedButton(onPressed: (){}, child: Container(color: Colors.orange, width: 200)),
-    ElevatedButton(onPressed: (){}, child: Container(color: Colors.greenAccent, width: 200)),
+    ElevatedButton(onPressed: (){}, child: Container(color: Colors.purple, width: 150)),
+    ElevatedButton(onPressed: (){}, child: Container(color: Colors.blue, width: 150)),
+    ElevatedButton(onPressed: (){}, child: Container(color: Colors.red, width: 150)),
+    ElevatedButton(onPressed: (){}, child: Container(color: Colors.black, width: 150)),
+    ElevatedButton(onPressed: (){}, child: Container(color: Colors.orange, width: 150)),
+    ElevatedButton(onPressed: (){}, child: Container(color: Colors.greenAccent, width: 150)),
   ];
   @override
   Widget build(BuildContext context) {

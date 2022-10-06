@@ -111,12 +111,11 @@ class _ListWheelState extends State<ListWheelHorizontal> {
   _pageimages(String image, String text, Widget button,  double opty) {
     return Padding(
         padding: const EdgeInsets.symmetric(vertical: 30.0, horizontal: 10.0),
-        child: Material(
-          elevation: 10,
-          shadowColor: Colors.black,
-          child: Container(
+        child: Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
+              boxShadow: const [BoxShadow(color: Colors.grey, spreadRadius: 1,blurRadius: 8,),],
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(20.0),
             ),
             child: Column(
               children: <Widget>[
@@ -143,8 +142,7 @@ class _ListWheelState extends State<ListWheelHorizontal> {
               ],
             ),
           ),
-        )
-    );
+        );
   }
 }
 
