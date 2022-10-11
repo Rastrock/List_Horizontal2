@@ -20,27 +20,27 @@ class MyApp extends StatelessWidget {
           Cards(
             directory: 'assets/74297472_p0_master1200.jpg',
             text: 'siiiiii',
-            button: ElevatedButton(onPressed: (){}, child: Container(color: Colors.red)),
+            action: (){},
           ),
           Cards(
             directory: 'assets/74297472_p0_master1200.jpg',
             text: 'Nononono',
-            button: ElevatedButton(onPressed: (){}, child: Container(color: Colors.blue,)),
+            action: (){},
           ),
           Cards(
             directory: 'assets/74297472_p0_master1200.jpg',
             text: 'ssdklvsdv',
-            button: ElevatedButton(onPressed: (){}, child: Container(color: Colors.green,)),
+            action: (){},
           ),
           Cards(
             directory: 'assets/74297472_p0_master1200.jpg',
             text: 'saaaaaaaaa',
-            button: ElevatedButton(onPressed: (){}, child: Container(color: Colors.orange)),
+            action: (){},
           ),
           Cards(
             directory: 'assets/74297472_p0_master1200.jpg',
             text: 'siiiiii',
-            button: ElevatedButton(onPressed: (){}, child: Container(color: Colors.purple,)),
+            action: (){},
           )
         ]),
       ),
