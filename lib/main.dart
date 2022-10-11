@@ -18,27 +18,27 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(),
         body: ListWheelHorizontal(height: null, cards: [
           Cards(
-            directory: 'assets/74297472_p0_master1200.jpg',
-            text: 'siiiiii',
+            directory: 'assets/pngwing.com.png',
+            text: 'La Merced',
             action: (){},
           ),
           Cards(
             directory: 'assets/74297472_p0_master1200.jpg',
-            text: 'Nononono',
+            text: 'Vaqueros',
+            action: (){},
+          ),
+          Cards(
+            directory: 'assets/pngwing.com(1).png',
+            text: 'Cerrillos',
             action: (){},
           ),
           Cards(
             directory: 'assets/74297472_p0_master1200.jpg',
-            text: 'ssdklvsdv',
+            text: 'Groenlandia',
             action: (){},
           ),
           Cards(
-            directory: 'assets/74297472_p0_master1200.jpg',
-            text: 'saaaaaaaaa',
-            action: (){},
-          ),
-          Cards(
-            directory: 'assets/74297472_p0_master1200.jpg',
+            directory: 'assets/pngwing.com.png',
             text: 'siiiiii',
             action: (){},
           )

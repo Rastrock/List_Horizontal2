@@ -6,10 +6,14 @@ import 'package:list_element/component/custom_button.dart';
 class ListWheelHorizontal extends StatefulWidget{
   late double? heightCard;
   late List<Cards> listCards;
+  late Color? textColor;
+  late double? fontSize;
   ListWheelHorizontal({
     Key? key,
     required double? height,
     required List<Cards> cards,
+    this.textColor = Colors.black,
+    this.fontSize = 15,
   }) : super(key: key){
     heightCard = height;
     listCards = cards;
@@ -102,34 +106,35 @@ class _ListWheelState extends State<ListWheelHorizontal> {
 
   Widget cardBuilder(String directoryImage, String textCard, Function()? actionButton, double opacity){
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 15),
+      padding: EdgeInsets.symmetric(vertical: 30, horizontal: 10),
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          color: Colors.blue,
           boxShadow: const [
             BoxShadow(
-                color: Colors.black12,
-                blurRadius: 10.0,
-                spreadRadius: 5,
-                offset: Offset(4, 4)
-            )
-          ]
+              color: Colors.grey,
+              spreadRadius: 1,
+              blurRadius: 8,
+            ),
+          ],
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20.0),
         ),
         child: Column(
             children:[
               Flexible(
                 flex: 7,
-                child: ClipRect(
-                  child: Container(
-                    height: 450,
-                    decoration: BoxDecoration(
-                        borderRadius: const BorderRadius.only(topRight: Radius.circular(20), topLeft: Radius.circular(20) ),
-                        image: DecorationImage(
-                          fit: BoxFit.fill,
-                          image: AssetImage(directoryImage),
-                          opacity: opacity,
-                        )
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
+                  child: ClipRRect(
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: const BorderRadius.only(topRight: Radius.circular(20), topLeft: Radius.circular(20) ),
+                          image: DecorationImage(
+                            fit: BoxFit.fill,
+                            image: AssetImage(directoryImage),
+                            opacity: opacity,
+                          )
+                      ),
                     ),
                   ),
                 ),
@@ -140,19 +145,24 @@ class _ListWheelState extends State<ListWheelHorizontal> {
                   height: 10,
                 ),
               ),
-              Padding(padding: EdgeInsets.only(bottom: 20, top: 5),child: Text(textCard)),
-              const SizedBox(
-                height: 5,
+              Padding(
+                  padding: EdgeInsets.only(bottom: 20, top: 5),
+                  child: Text(textCard, style: TextStyle(color: widget.textColor, fontSize: widget.fontSize),)),
+              Expanded(
+                flex: 1,
+                child: const SizedBox(
+                  height: 5,
+                ),
               ),
-              Flexible(
-                  flex: 2,
-                  child: CustomButton(
-                    onTap: (){
-                      actionButton;
-                    },
-                    text: 'Ver bingos',
-                    textColor: Colors.white,
-                    backgroundColor: Colors.green, fontSize: 20,)
+              Expanded(
+                flex: 2,
+                child: CustomButton(
+                  onTap: (){
+                    actionButton;
+                  },
+                  text: 'Ver bingos',
+                  textColor: Colors.white,
+                  backgroundColor: Colors.green, fontSize: 15, padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 1),),
               )
             ]
         ),
