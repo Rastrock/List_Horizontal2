@@ -29,6 +29,7 @@ class _ListWheelState extends State<ListWheelHorizontal> {
   late List<String> directoryCard;
   late List<String> textCard;
   late List<Widget> buttonCard;
+
   _ListWheelState(
       double? height,
       List<String> directory,
@@ -43,7 +44,7 @@ class _ListWheelState extends State<ListWheelHorizontal> {
       heightCard = height;
     }
     else{
-      heightCard = 350;
+      heightCard = 600;
     }
 
   }
@@ -72,7 +73,9 @@ class _ListWheelState extends State<ListWheelHorizontal> {
 
   @override
   Widget build(BuildContext context) {
+    
     double _opty;
+    
     return Center(
       child: SizedBox(
         height: heightCard, // card height
@@ -110,7 +113,7 @@ class _ListWheelState extends State<ListWheelHorizontal> {
 
   _pageimages(String image, String text, Widget button,  double opty) {
     return Padding(
-        padding: const EdgeInsets.symmetric(vertical: 30.0, horizontal: 10.0),
+        padding: const EdgeInsets.symmetric(vertical: 30.0, horizontal: 5.0),
         child: Container(
             decoration: BoxDecoration(
               boxShadow: const [BoxShadow(color: Colors.grey, spreadRadius: 1,blurRadius: 8,),],
@@ -119,6 +122,8 @@ class _ListWheelState extends State<ListWheelHorizontal> {
             ),
             child: Column(
               children: <Widget>[
+
+                const SizedBox(height: 20,),
                 ClipRRect(
                   child: Container(
                     height: 180,

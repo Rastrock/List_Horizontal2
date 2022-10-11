@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:list_element/component/list_wheel_horizontal.dart';
+import 'package:list_element/model/model.dart';
 
 void main() {
   runApp(MyApp());
@@ -7,6 +8,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
+
 
   List<String> image = [
     "images/salta.jpg",
@@ -39,7 +41,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       home: Scaffold(
         appBar: AppBar(),
-        body: ListWheelHorizontal(height: 450, directory: image, text: text, button: button),
+        body: ListWheelHorizontal(height: 500,directory: image, text: text, button: button),
       ),
     );
   }
