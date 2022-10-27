@@ -69,10 +69,10 @@ class _ListWheelState extends State<ListWheelHorizontal> {
   Widget build(BuildContext context) {
     double? opacity;
     return Center(
-      child: Container(
+      child: SizedBox(
         height: heightCard, // card height
         child: Padding(
-          padding: EdgeInsets.only(top: 20),
+          padding: const EdgeInsets.only(top: 20),
           child: PageView.builder(
             itemCount: listCards.length,
             controller: _controller,
@@ -106,7 +106,7 @@ class _ListWheelState extends State<ListWheelHorizontal> {
 
   Widget cardBuilder(String directoryImage, String textCard, Function()? actionButton, double opacity){
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 30, horizontal: 10),
+      padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 10),
       child: Container(
         decoration: BoxDecoration(
           boxShadow: const [
@@ -146,11 +146,11 @@ class _ListWheelState extends State<ListWheelHorizontal> {
                 ),
               ),
               Padding(
-                  padding: EdgeInsets.only(bottom: 20, top: 5),
+                  padding: const EdgeInsets.only(bottom: 20, top: 5),
                   child: Text(textCard, style: TextStyle(color: widget.textColor, fontSize: widget.fontSize),)),
-              Expanded(
+              const Expanded(
                 flex: 1,
-                child: const SizedBox(
+                child: SizedBox(
                   height: 5,
                 ),
               ),
